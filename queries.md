@@ -59,3 +59,45 @@ SELECT TOP (1) WITH TIES employee_id, first_name, last_name, salary
 FROM hcm.employees
 ORDER BY salary ASC;
 ```
+
+### WHERE Challenges ###
+
+-- Challenge 1 \
+-- Select all products which have a price greater than $100:
+
+**Solution:**
+```sql
+SELECT *
+FROM oes.products
+WHERE list_price > 100;
+```
+
+-- Challenge 2 \
+-- Select all unshipped orders (i.e. where shipped_date is null):
+
+**Solution:**
+```sql
+SELECT *
+FROM oes.orders
+WHERE shipped_date IS NULL;
+```
+
+-- Challenge 3 \
+-- Select all orders placed on the 26th of February 2020: 
+
+**Solution:**
+```sql
+SELECT *
+FROM oes.orders
+WHERE order_date = '20200226';
+```
+
+-- Challenge 4 \
+-- Select all orders placed on or after the 1st of January 2020:
+
+**Solution:**
+```sql
+SELECT *
+FROM oes.orders
+WHERE order_date >= '20200101';
+```
