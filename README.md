@@ -1,1 +1,1 @@
-# sql-course-2023
+# SQL-Course-2023
