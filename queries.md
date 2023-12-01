@@ -101,3 +101,49 @@ SELECT *
 FROM oes.orders
 WHERE order_date >= '20200101';
 ```
+
+### Pattern Matching Challenges ###
+
+-- Challenge 1 \
+-- Select all countries which start with the letter 'N':
+
+**Solution:**
+```sql
+SELECT *
+FROM hcm.countries
+WHERE country_name LIKE 'N%';
+```
+
+-- Challenge 2 \
+-- Select all customers who have gmail email addresses:
+
+**Solution:**
+```sql
+SELECT 
+	customer_id,
+	first_name,
+	last_name,
+	email
+FROM oes.customers
+WHERE email LIKE '%@gmail.com';
+```
+
+-- Challenge 3 \
+-- Select all product names which contain the word 'mouse':
+
+**Solution:**
+```sql
+SELECT product_name
+FROM oes.products
+WHERE product_name LIKE '%mouse%';
+```
+
+-- Challenge 4 \
+-- Select all product names which end in a number:
+
+**Solution:**
+```sql
+SELECT product_name
+FROM oes.products
+WHERE product_name LIKE '%[0-9]';
+```
