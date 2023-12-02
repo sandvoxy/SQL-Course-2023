@@ -208,3 +208,55 @@ SELECT
 FROM bird.antarctic_populations
 GROUP BY locality, species_id;
 ```
+
+## Logical Operator Challenges ##
+
+### Challenge 1 ###
+* Select employees from Seattle or Sydney:
+
+**Solution:**
+```sql
+SELECT *
+FROM hcm.employees
+WHERE city = 'Seattle' OR city = 'Sydney';
+```
+
+### Challenge 2 ###
+* Select employees who live in any of the following cities, Seattle, Sydney, Ascot, Hillston:
+
+**Solution:**
+```sql
+SELECT *
+FROM hcm.employees
+WHERE city IN ('Seattle', 'Sydney', 'Ascot', 'Hillston');
+```
+
+### Challenge 3 ###
+* Select employees from Sydney who have a salary greater than $200,000:
+
+**Solution:**
+```sql
+SELECT *
+FROM hcm.employees
+WHERE city = 'Sydney' AND salary > 200000;
+```
+
+### Challenge 4 ###
+* Select employees who live in either Seattle or Sydney city and were hired on or after January 1st 2019:
+
+**Solution:**
+```sql
+SELECT *
+FROM hcm.employees
+WHERE (city = 'Seattle' OR city = 'Sydney') AND hire_date >= '20190101';
+```
+
+### Challenge 5 ###
+* Select products that are not categories 1, 2 or 5:
+
+**Solution:**
+```sql
+SELECT *
+FROM oes.products
+WHERE category_id NOT IN (1, 2, 5);
+```
