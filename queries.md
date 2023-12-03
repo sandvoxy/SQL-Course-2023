@@ -1,3 +1,4 @@
+
 ## ORDER BY Challenges ##
 
 ### Challenge 1 ###
@@ -259,4 +260,51 @@ WHERE (city = 'Seattle' OR city = 'Sydney') AND hire_date >= '20190101';
 SELECT *
 FROM oes.products
 WHERE category_id NOT IN (1, 2, 5);
+```
+
+## Join Challenges ##
+
+### Challenge 1 ###
+* Return employee details for employees who belong to a department:
+
+**Solution:**
+```sql
+SELECT 
+	e.employee_id,
+	e.first_name,
+	e.last_name,
+	e.salary,
+	d.department_name
+FROM hcm.employees e JOIN hcm.departments d 
+ON d.department_id = e.department_id;
+```
+
+### Challenge 2 ###
+* Return employee details for all employees, including employees who do not belong to a department:
+
+**Solution:**
+```sql
+SELECT 
+	e.employee_id,
+	e.first_name,
+	e.last_name,
+	e.salary,
+	d.department_name
+FROM hcm.employees e LEFT JOIN hcm.departments d 
+ON d.department_id = e.department_id;
+```
+
+### Challenge 3 ###
+* Return the total number of employees in each department.
+* Include the department_name in the query result.
+* Also, include employees who have not been assigned to a department:
+
+**Solution:**
+```sql
+SELECT 
+	d.department_name,
+	COUNT(*) AS employee_count
+FROM hcm.employees e LEFT JOIN hcm.departments d 
+ON d.department_id = e.department_id
+GROUP BY d.department_name;
 ```
