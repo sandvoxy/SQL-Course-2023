@@ -308,3 +308,29 @@ FROM hcm.employees e LEFT JOIN hcm.departments d
 ON d.department_id = e.department_id
 GROUP BY d.department_name;
 ```
+
+## Advanced Join Challenges ##
+
+### Challenge 1 ###
+* Write a query to return employee details for all employees as well
+as the first and last name of each employee's manager. Include
+the following columns:
+- employee_id
+- first_name
+- last_name
+- manager_first_name (alias for first_name)
+- manager_last_name (alias for last_name)
+
+**Solution:**
+```sql
+SELECT 
+	e.employee_id,
+	e.first_name,
+	e.last_name,
+	e.manager_id,
+	m.first_name as manager_first_name,
+	m.last_name as manager_last_name
+FROM hcm.employees e
+LEFT JOIN hcm.employees m
+ON e.manager_id = m.employee_id;
+```
