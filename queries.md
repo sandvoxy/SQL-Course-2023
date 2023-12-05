@@ -334,3 +334,28 @@ FROM hcm.employees e
 LEFT JOIN hcm.employees m
 ON e.manager_id = m.employee_id;
 ```
+
+### Challenge 2 ###
+* Write a query to return all the products at each warehouse. \
+Include the following attributes: \
+&ndash; product_id \
+&ndash; product_name \
+&ndash; warehouse_id \
+&ndash; warehouse_name \
+&ndash; quantity_on_hand 
+
+**Solution:**
+```sql
+SELECT 
+	p.product_id,
+	p.product_name,
+	w.warehouse_id,
+	w.warehouse_name,
+	i.quantity_on_hand
+FROM oes.products p
+INNER JOIN oes.inventories i
+ON p.product_id = i.product_id
+INNER JOIN oes.warehouses w
+ON w.warehouse_id = i.warehouse_id;
+
+```
