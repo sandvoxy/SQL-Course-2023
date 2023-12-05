@@ -314,12 +314,12 @@ GROUP BY d.department_name;
 ### Challenge 1 ###
 * Write a query to return employee details for all employees as well
 as the first and last name of each employee's manager. Include
-the following columns:
-- employee_id
-- first_name
-- last_name
-- manager_first_name (alias for first_name)
-- manager_last_name (alias for last_name)
+the following columns: \
+&ndash; employee_id \
+&ndash; first_name \
+&ndash; last_name \
+&ndash; manager_first_name (alias for first_name) \
+&ndash; manager_last_name (alias for last_name)
 
 **Solution:**
 ```sql
