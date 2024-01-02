@@ -359,3 +359,60 @@ INNER JOIN oes.warehouses w
 ON w.warehouse_id = i.warehouse_id;
 
 ```
+## Function Challenges ##
+
+### Challenge 1 ###
+* Concatenate employee first and last names together:
+
+**Solution:**
+```sql
+SELECT
+	employee_id,
+	first_name,
+	last_name,
+	CONCAT(first_name, ' ', last_name)  AS employee_name
+FROM hcm.employees;
+```
+
+### Challenge 2 ###
+* Concatenate employee first, middle, and last names together:
+
+**Solution:**
+```sql
+SELECT 
+	employee_id,
+	first_name,
+	middle_name,
+	last_name,
+	CONCAT(first_name, ' ' + middle_name, ' ', last_name) AS employee_name
+FROM hcm.employees;
+```
+
+### Challenge 5 ###
+* Return the age in years for all employees:
+
+**Solution:**
+```sql
+SELECT
+	employee_id,
+	first_name,
+	last_name,
+	birth_date,
+	DATEDIFF(year, birth_date, CURRENT_TIMESTAMP) AS employee_age
+FROM hcm.employees;
+```
+
+### Challenge 6 ###
+* Assuming an estimated shipping date of 7 days after the order date.
+  Add a column expression called estimated_shipping_date for all unshipped orders
+
+**Solution:**
+```sql
+SELECT 
+	order_id,
+	order_date,
+	DATEADD(day, 7, order_date) AS estimated_shipping_date
+FROM oes.orders
+WHERE shipped_date IS NULL;
+```
+
