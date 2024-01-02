@@ -388,6 +388,29 @@ SELECT
 FROM hcm.employees;
 ```
 
+### Challenge 3 ###
+* Extract the genus name from the species scientific name as given in the bird.antarctic_species table. Use the CHARINDEX function nested in the LEFT function:
+
+**Solution:**
+```sql
+SELECT 
+	scientific_name, 
+	LEFT(scientific_name, CHARINDEX(' ', scientific_name)-1) AS genus_name
+FROM bird.antarctic_species;
+```
+
+### Challenge 4 ###
+* Extract the species name from the scientific name as given in the bird.antarctic_species table. Use the CHARINDEX and LEN function nested in the SUBSTRING function:
+
+**Solution:**
+```sql
+SELECT 
+	scientific_name, 
+	SUBSTRING(scientific_name, CHARINDEX(' ', scientific_name)+1, LEN(scientific_name)) AS species_name
+FROM bird.antarctic_species;
+```
+
+
 ### Challenge 5 ###
 * Return the age in years for all employees:
 
