@@ -416,3 +416,18 @@ FROM oes.orders
 WHERE shipped_date IS NULL;
 ```
 
+### Challenge 7 ###
+* Calculate the average number of days it takes each shipping company to ship an order. Call this expression avg_shipping_days:
+
+**Solution:**
+```sql
+SELECT 
+	s.company_name,
+	AVG(DATEDIFF(day, o.order_date, o.shipped_date)) AS avg_shipping_days
+FROM oes.orders o
+INNER JOIN oes.shippers s
+ON o.shipper_id = s.shipper_id
+GROUP BY s.company_name;
+
+```
+
