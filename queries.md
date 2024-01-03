@@ -451,6 +451,25 @@ FROM oes.orders o
 INNER JOIN oes.shippers s
 ON o.shipper_id = s.shipper_id
 GROUP BY s.company_name;
-
 ```
+
+## CASE Expression Challenges ##
+
+### Challenge 1 ###
+* CASE expression - discontinued_description:
+
+**Solution:**
+```sql
+SELECT 
+	product_id,
+	product_name,
+	discontinued,
+		CASE discontinued 
+		 WHEN 0 THEN 'No'
+		 WHEN 1 THEN 'Yes'
+		 ELSE 'unknown' END AS discontinued_description
+FROM oes.products;
+```
+
+
 
