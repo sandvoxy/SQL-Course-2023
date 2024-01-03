@@ -471,5 +471,22 @@ SELECT
 FROM oes.products;
 ```
 
+### Challenge 2 ###
+* CASE expression - price_grade:
+
+**Solution:**
+```sql
+SELECT 
+	product_id,
+	product_name,
+	list_price,
+	CASE WHEN list_price < 50 THEN 'Low'
+		 WHEN list_price >= 50 AND list_price < 250 THEN 'Medium'
+		 WHEN list_price >= 250 THEN 'High'
+		 ELSE 'unknown'
+	END AS price_grade
+FROM oes.products;
+```
+
 
 
