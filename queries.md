@@ -488,5 +488,20 @@ SELECT
 FROM oes.products;
 ```
 
+### Challenge 3 ###
+* CASE expression - shipping_status:
+
+**Solution:**
+```sql
+SELECT 
+	order_id,
+	order_date,
+	shipped_date,
+	CASE WHEN DATEDIFF(day, order_date,shipped_date) <= 7 THEN 'Shipped within one week'
+		 WHEN DATEDIFF(day, order_date,shipped_date) > 7 THEN 'Shipped over a week later'
+		 WHEN shipped_date IS NULL THEN 'Not yet shipped' 
+		 END AS shipping_status
+FROM oes.orders;
+```
 
 
